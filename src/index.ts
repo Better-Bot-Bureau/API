@@ -11,7 +11,7 @@ require("dotenv").config()
 
 const app = express()
 const httpServer = createServer(app)
-const io = new Server(httpServer, { /* Possible future options if needed */ })
+const io = new Server(httpServer, { path: "/wss" })
 
 // Use cookies
 app.use(cookies())
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// Connect to mongoDb
+// Connect to database
 const db = require("./common/database");
 
 
